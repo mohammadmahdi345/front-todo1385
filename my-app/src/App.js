@@ -12,6 +12,7 @@ import Tasks from './tasks';
 import { PrivateRoute } from './private';
 import TaskStatus from './status';
 import MusicPlayer from './music';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 class App extends Component { 
     state = {
@@ -25,6 +26,7 @@ class App extends Component {
     if(token){
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
+    
     
     if (!token) {
         this.setState({ user: null });

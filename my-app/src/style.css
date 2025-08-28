@@ -798,3 +798,106 @@ input {
   transform: scale(0.98);
   box-shadow: 0 3px 7px rgba(255, 59, 46, 0.6);
 }
+
+
+
+/* 📱 استایل موبایل بهینه */
+@media (max-width: 600px) {
+
+  /* دکمه‌ها */
+  a.login-link, 
+  a.program-link, 
+  a.tasks-link,
+  .login-submit-btn,
+  .program-submit-btn,
+  .timeslot-submit-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 0;
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  /* حذف transform و hover بزرگ شدن در موبایل */
+  a.program-link:hover,
+  a.tasks-link:hover,
+  .login-submit-btn:hover,
+  .program-submit-btn:hover,
+  .timeslot-submit-btn:hover {
+    transform: none;
+  }
+
+  /* بخش اصلی فرم‌ها */
+  .task-program,
+  .login-wrapper,
+  .program-form,
+  .timeslot-form {
+    flex-direction: column;
+    gap: 20px;
+    width: 95%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  /* فرم‌های input */
+  .form-input, 
+  .program-input {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  /* کارت‌ها */
+  .task-card,
+  .motivational-card {
+    width: 95%;
+    margin: 15px auto;
+    padding: 15px 20px;
+  }
+
+  /* عنوان و توضیح تسک */
+  .task-title {
+    font-size: 1.4rem;
+    gap: 6px;
+  }
+
+  .task-description {
+    font-size: 1rem;
+    gap: 6px;
+  }
+
+  .task-time {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* موزیک پلیر */
+  .music-player-container {
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    padding: 10px 15px;
+  }
+
+  .music-btn {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  /* متن عمومی */
+  body {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  /* پیام‌ها */
+  .error-messages, 
+  .program-message, 
+  .timeslot-message, 
+  .login-message, 
+  .register-message {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

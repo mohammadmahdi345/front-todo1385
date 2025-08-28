@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Input from "./input";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Program = () => {
   const [program, setProgram] = useState({ title: "", description: "", date: "" });
@@ -19,7 +20,7 @@ const Program = () => {
     try {
       const token = localStorage.getItem("token");
       const fixedData = { ...program, date: new Date(program.date).toISOString().split("T")[0] };
-      const response = await axios.post("http://localhost:8007/task/", fixedData, {
+      const response = await axios.post('http://localhost:8007/task/', fixedData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -47,3 +48,4 @@ const Program = () => {
 };
 
 export default Program;
+
