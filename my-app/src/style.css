@@ -805,10 +805,9 @@ input {
 
 
 
-
 /* 📱 موبایل (زیر 768px) */
 @media (max-width: 768px) {
-  /* فرم‌ها و کارت‌ها */
+  /* فرم‌ها و کارت‌ها وسط‌چین و محدود به 90% عرض */
   .login-wrapper,
   .program-form,
   .timeslot-form,
@@ -824,15 +823,16 @@ input {
   .task-card {
     padding: 12px;
     gap: 8px;
+    flex-direction: column;
   }
 
   /* تیتر و توضیح تسک */
   .task-title { font-size: 1rem; }
   .task-description { font-size: 0.9rem; }
 
-  .task-time { font-size: 0.85rem; padding: 5px 8px; }
+  .task-time { font-size: 0.85rem; padding: 5px 8px; flex-direction: column; gap: 4px; }
 
-  /* دکمه‌ها و لینک‌ها */
+  /* دکمه‌ها و لینک‌ها عرض محدود و وسط‌چین */
   button,
   .task-button8,
   .back-to-tasks-btn,
@@ -841,11 +841,14 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    width: 100%;
-    padding: 8px 10px;
+    width: 90%;
+    max-width: 280px;
+    padding: 10px;
     font-size: 0.9rem;
-    margin-bottom: 8px;
-    border-radius: 6px;
+    margin: 10px auto;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
   }
 
   /* پلیر موسیقی مخفی */
@@ -858,6 +861,7 @@ input {
     font-size: 1rem;
     line-height: 1.5;
     padding: 12px;
+    text-align: center;
   }
 }
 
@@ -878,7 +882,7 @@ input {
   .task-title { font-size: 0.95rem; }
   .task-description { font-size: 0.85rem; }
 
-  .task-time { font-size: 0.8rem; padding: 4px 6px; }
+  .task-time { font-size: 0.8rem; padding: 4px 6px; flex-direction: column; gap: 3px; }
 
   button,
   .task-button8,
@@ -888,11 +892,14 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    padding: 6px 8px;
+    width: 95%;
+    max-width: 260px;
+    padding: 8px;
     font-size: 0.85rem;
+    margin: 8px auto;
   }
 
-  .quote-text { font-size: 0.95rem; padding: 10px; }
+  .quote-text { font-size: 0.95rem; padding: 10px; text-align: center; }
 
   /* پلیر موسیقی مخفی */
   .music-player-container {
