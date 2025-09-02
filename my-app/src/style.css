@@ -809,6 +809,7 @@ input {
 
 /* 📱 موبایل (زیر 768px) */
 @media (max-width: 768px) {
+  /* بهبود دکمه‌ها */
   button,
   .task-button8,
   .back-to-tasks-btn,
@@ -825,9 +826,9 @@ input {
     margin-bottom: 8px;
   }
 
-  /* مخفی کردن پلیر موسیقی */
-  .music-player-container {
-    display: none !important;
+  /* جلوگیری از زوم شدن در موبایل */
+  input, select, textarea {
+    font-size: 16px !important;
   }
   
   /* بهبود سایز نقل قول */
@@ -835,6 +836,23 @@ input {
     font-size: 1.1rem;
     line-height: 1.6;
     padding: 15px;
+  }
+  
+  /* استایل برای منوی ورود و ثبت نام */
+  .auth-links {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  /* استایل هدر */
+  header {
+    position: relative;
+    padding-top: 60px;
+    text-align: center;
   }
 }
 
@@ -856,5 +874,10 @@ input {
   .quote-text {
     font-size: 1rem;
     padding: 12px;
+  }
+  
+  .auth-links {
+    top: 10px;
+    left: 10px;
   }
 }
