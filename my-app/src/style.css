@@ -818,7 +818,7 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    padding: 8px 12px;
+    padding: 12;
     font-size: 0.85rem;
     border-radius: 8px;
     width: 100%;
@@ -832,7 +832,7 @@ input {
   
   /* بهبود سایز نقل قول */
   .quote-text {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     padding: 15px;
   }
@@ -849,8 +849,8 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    padding: 10px 12px;
-    font-size: 0.9rem;
+    padding: 12;
+    font-size: 0.4rem;
   }
   
   .quote-text {
