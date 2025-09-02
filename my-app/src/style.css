@@ -804,35 +804,34 @@ input {
 
 
 
-
-/* 📱 موبایل (زیر 768px) */
-@media (max-width: 768px) {
-  /* فرم‌ها و کارت‌ها وسط‌چین و محدود به 90% عرض */
+/* 📱 موبایل و تبلت کوچک (عرض 900px یا کمتر) */
+@media (max-width: 900px) {
+  /* فرم‌ها و کارت‌ها */
   .login-wrapper,
   .program-form,
   .timeslot-form,
   .tasks-container,
   .task-status-container,
   .motivational-card {
-    max-width: 90%;
+    max-width: 95%;
     width: 100%;
-    margin: 20px auto;
-    padding: 15px;
+    margin: 15px auto;
+    padding: 12px 15px;
+    box-sizing: border-box;
   }
 
+  /* کارت تسک */
   .task-card {
-    padding: 12px;
+    padding: 10px;
     gap: 8px;
     flex-direction: column;
   }
 
-  /* تیتر و توضیح تسک */
   .task-title { font-size: 1rem; }
   .task-description { font-size: 0.9rem; }
+  .task-time { font-size: 0.85rem; padding: 5px 8px; }
 
-  .task-time { font-size: 0.85rem; padding: 5px 8px; flex-direction: column; gap: 4px; }
-
-  /* دکمه‌ها و لینک‌ها عرض محدود و وسط‌چین */
+  /* دکمه‌ها و لینک‌ها */
   button,
   .task-button8,
   .back-to-tasks-btn,
@@ -841,14 +840,12 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    width: 90%;
-    max-width: 280px;
-    padding: 10px;
+    width: 100%;
+    padding: 8px 10px;
     font-size: 0.9rem;
-    margin: 10px auto;
-    border-radius: 8px;
-    display: block;
-    text-align: center;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    box-sizing: border-box;
   }
 
   /* پلیر موسیقی مخفی */
@@ -861,48 +858,16 @@ input {
     font-size: 1rem;
     line-height: 1.5;
     padding: 12px;
-    text-align: center;
   }
-}
 
-/* 📱 موبایل خیلی کوچک (زیر 480px) */
-@media (max-width: 480px) {
-  .login-wrapper,
-  .program-form,
-  .timeslot-form,
-  .tasks-container,
-  .task-status-container,
+  /* فرم‌های ورودی */
+  .form-input, .program-input {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+
+  /* کارت انگیزشی */
   .motivational-card {
-    max-width: 95%;
-    padding: 10px;
-  }
-
-  .task-card { padding: 8px; gap: 6px; }
-
-  .task-title { font-size: 0.95rem; }
-  .task-description { font-size: 0.85rem; }
-
-  .task-time { font-size: 0.8rem; padding: 4px 6px; flex-direction: column; gap: 3px; }
-
-  button,
-  .task-button8,
-  .back-to-tasks-btn,
-  .task-status,
-  .next-quote-btn,
-  a.login-link,
-  a.program-link,
-  a.tasks-link {
-    width: 95%;
-    max-width: 260px;
-    padding: 8px;
-    font-size: 0.85rem;
-    margin: 8px auto;
-  }
-
-  .quote-text { font-size: 0.95rem; padding: 10px; text-align: center; }
-
-  /* پلیر موسیقی مخفی */
-  .music-player-container {
-    display: none !important;
+    padding: 20px 15px;
   }
 }
