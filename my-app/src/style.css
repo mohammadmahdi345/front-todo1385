@@ -809,7 +809,6 @@ input {
 
 /* 📱 موبایل (زیر 768px) */
 @media (max-width: 768px) {
-  /* دکمه‌ها جمع‌وجورتر */
   button,
   .task-button8,
   .back-to-tasks-btn,
@@ -819,18 +818,27 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    padding: 6px 10px;
-    font-size: 0.75rem;
-    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 8px;
   }
 
-  /* پلیر موسیقی رو مخفی کن */
+  /* مخفی کردن پلیر موسیقی */
   .music-player-container {
     display: none !important;
   }
+  
+  /* بهبود سایز نقل قول */
+  .quote-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 15px;
+  }
 }
 
-/* 📱 موبایل خیلی کوچیک (زیر 480px) */
+/* 📱 موبایل خیلی کوچک (زیر 480px) */
 @media (max-width: 480px) {
   button,
   .task-button8,
@@ -841,7 +849,12 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    padding: 5px 8px;
-    font-size: 0.7rem;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .quote-text {
+    font-size: 1rem;
+    padding: 12px;
   }
 }
