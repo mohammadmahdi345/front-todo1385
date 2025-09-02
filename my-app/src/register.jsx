@@ -3,7 +3,6 @@ import * as yup from 'yup';
 import axios from 'axios';
 import Input from './input';
 import { Link } from 'react-router-dom';
-const apiUrl = process.env.REACT_APP_API_URL;
 
 const Register = () => {
   const [account, setAccount] = useState({

@@ -3,7 +3,6 @@ import * as yup from 'yup';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Input from './input';
-const apiUrl = process.env.REACT_APP_API_URL;
 
 class Login extends Component {
     /*navigate = useNavigate();*/

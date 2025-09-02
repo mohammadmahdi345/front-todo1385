@@ -3,9 +3,6 @@ import { Link,Route,Routes } from 'react-router-dom';
 import MusicPlayer from './music';
 import MotivationalCard from './motivated';
 
-
-
-
 class Home extends Component {
     render() { 
         return (

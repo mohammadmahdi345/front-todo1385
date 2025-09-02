@@ -1,11 +1,8 @@
-
 import { useParams, useNavigate } from 'react-router-dom';
 import Input from './input';
 import React, { useState } from "react";
 import axios from "axios";
 import * as Yup from 'yup';
-const apiUrl = process.env.REACT_APP_API_URL;
-
 
 const Timeslot = () => {
     const { pk } = useParams();
