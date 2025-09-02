@@ -920,8 +920,9 @@ input {
   .tasks-container,
   .task-status-container,
   .motivational-card {
-    max-width: 320px;    /* تنگ‌تر برای گوشی‌های کوچک */
-    padding: 10px;
+    max-width: 240px;    /* حتی کوچکتر */
+    padding: 7px 10px;
+    font-size: 0.88rem;
     margin: 12px auto;
   }
 
