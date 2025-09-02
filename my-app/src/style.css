@@ -910,3 +910,51 @@ input {
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 480px) {
+  h1.welcome {
+    font-size: 1.5rem;
+  }
+
+  a.login-link, a.program-link, a.tasks-link {
+    width: 100%;
+    text-align: center;
+    margin: 4px 0;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .task-title {
+    font-size: 1.1rem;
+  }
+
+  .task-description {
+    font-size: 0.9rem;
+  }
+
+  .task-time {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .task-button8,
+  .back-to-tasks-btn,
+  .task-status,
+  .next-quote-btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .music-btn {
+    padding: 5px 6px;
+    font-size: 0.75rem;
+  }
+
+  .quote-text {
+    font-size: 1rem;
+  }
+
+  .quote-author {
+    font-size: 0.85rem;
+  }
+}
