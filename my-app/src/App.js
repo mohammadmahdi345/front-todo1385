@@ -34,7 +34,7 @@ class App extends Component {
 
 
     try {
-        const response = await axios.get('http://localhost:8007/user/', {
+        const response = await axios.get('https://todo12-2.onrender.com/user/', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
