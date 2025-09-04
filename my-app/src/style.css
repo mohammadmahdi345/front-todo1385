@@ -1,117 +1,333 @@
-/* پایه: mobile-first */
+/* === پایه: موبایل-first === */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-.wrapper {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  color: #333;
+  margin: 0;
+  padding: 0 16px;
+  direction: rtl;
+}
+
+/* خوش آمدید */
+h1.welcome {
+  text-align: center;
+  margin-top: 30px;
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+}
+
+/* لینک‌ها */
+a.login-link, a.program-link, a.tasks-link {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+  transition: background-color 0.3s ease, transform 0.25s ease;
+}
+
+a.login-link { background-color: #3498db; bottom: 0; position: relative; }
+a.login-link:hover { background-color: #2980b9; }
+a.program-link { background-color: #27ae60; }
+a.program-link:hover { background-color: #1e8449; transform: scale(1.1); }
+a.tasks-link { background-color: #27ae60; }
+a.tasks-link:hover { background-color: #1e8449; transform: scale(1.1); }
+
+/* بخش برنامه‌ها */
+.task-program {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* فرم‌ها */
+.login-wrapper,
+.program-form,
+.timeslot-form,
+.tasks-container,
+.task-status-container,
+.motivational-card {
   width: 100%;
-  max-width: 360px; /* برای موبایل */
-  margin: 1rem auto;
-  padding: 1rem;
+  max-width: 360px;
+  margin: 18px auto;
+  padding: 12px 14px;
   border-radius: 12px;
-  container-type: inline-size; /* برای container query */
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  container-type: inline-size;
+  background-color: #fff;
+}
+
+/* فرم‌های داخلی */
+.login-form,
+.program-form,
+.timeslot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.program-input,
+.form-input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  direction: ltr;
+}
+
+.program-input:focus,
+.form-input:focus {
+  border-color: #27ae60;
+  outline: none;
+}
+
+.form-input.invalid {
+  border-color: #e74c3c;
+  background-color: #fff5f5;
+}
+
+.input-error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* دکمه‌ها */
+.login-submit-btn,
+.program-submit-btn,
+.timeslot-submit-btn,
+.task-button8,
+.back-to-tasks-btn,
+.task-status,
+.next-quote-btn {
+  padding: 10px 0;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  text-align: center;
+}
+
+.login-submit-btn { background-color: #3498db; }
+.login-submit-btn:hover:not(:disabled) { background-color: #217dbb; }
+.program-submit-btn { background-color: #27ae60; }
+.program-submit-btn:hover { background-color: #1e8449; }
+.timeslot-submit-btn { background-color: #3498db; }
+.timeslot-submit-btn:hover { background-color: #217dbb; }
+
+.task-button8 {
+  background-color: #27ae60;
+  align-self: flex-start;
+  box-shadow: 0 3px 7px rgba(39, 174, 96, 0.6);
+}
+.task-button8:hover {
+  background-color: #1e8449;
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(30, 132, 73, 0.8);
+}
+.task-button8:active { transform: scale(0.95); }
+
+.back-to-tasks-btn { background-color: #3498db; }
+.back-to-tasks-btn:hover { background-color: #217dbb; transform: scale(1.05); }
+
+.task-status {
+  display: block;
+  margin: 12px auto;
+  max-width: 220px;
+  padding: 12px 28px;
+  background-color: #27ae60;
+  font-weight: 700;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* پیام‌ها */
+.error-messages,
+.program-message,
+.timeslot-message,
+.login-message,
+.register-message,
+.no-tasks-message {
+  text-align: center;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+}
+
+.error-messages { background-color: #fce4e4; color: #e74c3c; padding: 12px 20px; border-radius: 10px; margin-bottom: 15px; }
+.program-message,
+.timeslot-message { color: #e74c3c; margin-top: 10px; }
+
+/* تیترها */
+.timeslot-form h2,
+.tasks-title,
+.task-status-title {
+  text-align: center;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 /* تسک‌ها */
 .task-card {
+  background-color: #fff;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.12);
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-radius: 10px;
+  gap: 12px;
 }
 
-.task-title {
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  margin: 0 0 0.5rem 0;
+.task-card:hover {
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+  transform: translateY(-4px);
 }
+
+.task-card.completed { border-left: 6px solid #27ae60; }
+.task-card.incomplete { border-left: 6px solid #3498db; }
+
+.task-title {
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: #1a2e35;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+  position: relative;
+}
+.task-title::before {
+  content: "عنوان:";
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #27ae60;
+}
+
+/* توضیح تسک */
 .task-description {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  margin: 0;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #555;
+  font-style: italic;
+  line-height: 1.4;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.task-description::before {
+  content: "توضیح:";
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* تاریخ و زمان */
+.task-date {
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  color: #999;
+  direction: ltr;
+  font-weight: 600;
+  margin-top: 6px;
+  text-align: left;
 }
 
 .task-time {
-  font-size: clamp(0.75rem, 2vw, 0.9rem);
-  padding: 0.5rem;
-  border-radius: 8px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #2c3e50;
+  background-color: #f0f8ff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  font-weight: 600;
+  box-shadow: inset 0 0 8px rgba(41, 128, 185, 0.2);
+}
+
+.task-time span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #217dbb;
+}
+.task-time span::before { content: "⏰"; font-size: 1rem; }
+
+.task-time .start-time::before { content: "زمان شروع:"; color: #3498db; font-weight: 700; margin-left: 4px; }
+.task-time .end-time::before { content: "زمان پایان:"; color: #2980b9; font-weight: 700; margin-left: 4px; }
+
+/* وضعیت */
+.status-list li { margin-bottom: 8px; }
+
+/* موزیک پلیر */
+.music-player-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255 255 255 / 0.9);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 6px;
+  width: 90%;
+  max-width: 260px;
+  z-index: 1000;
 }
 
-button,
-.task-button8,
-.back-to-tasks-btn,
-.task-status,
-.next-quote-btn,
-a.login-link,
-a.program-link,
-a.tasks-link {
-  display: block;
-  width: auto;
-  max-width: 200px;
-  padding: 0.5rem 0.75rem;
-  font-size: clamp(0.78rem, 2vw, 0.9rem);
-  margin: 0.5rem auto;
-  border-radius: 8px;
-  text-align: center;
-}
-
-/* متن */
-.quote-text {
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  line-height: 1.4;
-  padding: 0.75rem;
-  text-align: center;
-}
-
+/* کارت انگیزشی */
 .motivational-card {
+  max-width: 360px;
+  margin: 30px auto;
+  padding: 16px;
+  border-radius: 16px;
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');
   background-size: cover;
-  padding: 1rem;
-  border-radius: 10px;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* پلیر موسیقی روی موبایل مخفی */
-.music-player-container {
-  display: none;
+.motivational-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%);
+  border-radius: 16px;
+  z-index: 0;
 }
 
-/* جلوگیری از اسکرول افقی */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+.quote-text,
+.quote-author,
+.next-quote-btn {
+  position: relative;
+  z-index: 1;
 }
 
-/* ===========================
-   Container Queries
-   =========================== */
-
-/* وقتی کانتینر بزرگ‌تر از 600px شد (تبلت / دسکتاپ) */
-@container (min-width: 600px) {
-  .wrapper {
-    max-width: 700px;
-    padding: 2rem;
-  }
-
-  .task-card {
-    flex-direction: row;   /* تسک‌ها کنار هم */
-    align-items: center;
-  }
-
-  button,
-  .task-button8 {
-    max-width: none;       /* دکمه‌ها آزاد بشن */
-    margin: 0;
-  }
-
-  .quote-text {
-    font-size: 1.1rem;
-  }
-}
-
-/* وقتی کانتینر بزرگ‌تر از 900px شد */
-@container (min-width: 900px) {
-  .wrapper {
-    max-width: 900px;
-  }
-}
+.quote-text { font-size: clamp(1rem, 4vw, 1.5rem); }
+.quote-author { font-size: clamp(0.95rem, 3vw, 1.2rem); }
+.next-quote-btn { font-size: clamp(0.9rem, 3vw, 1rem); }
