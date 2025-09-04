@@ -866,9 +866,9 @@ input {
   a.tasks-link {
     display: block;
     width: auto;                  /* اجازه می‌ده محتوا اندازه خودش رو بگیره */
-    max-width: 300px;             /* ← حداکثر عرض دکمه (کوچکتر کن اگر لازم) */
+    max-width: 200px;             /* ← حداکثر عرض دکمه (کوچکتر کن اگر لازم) */
     padding: 8px 12px;
-    font-size: 0.92rem;
+    font-size: 0.82rem;
     margin: 8px auto;             /* مرکز-قرار دادن هر دکمه */
     border-radius: 8px;
     text-align: center;
@@ -920,9 +920,9 @@ input {
   .tasks-container,
   .task-status-container,
   .motivational-card {
-    max-width: 240px;    /* حتی کوچکتر */
+    max-width: 220px;    /* حتی کوچکتر */
     padding: 7px 10px;
-    font-size: 0.88rem;
+    font-size: 0.78rem;
     margin: 12px auto;
   }
 
@@ -934,9 +934,9 @@ input {
   a.login-link,
   a.program-link,
   a.tasks-link {
-    max-width: 240px;    /* حتی کوچکتر */
+    max-width: 220px;    /* حتی کوچکتر */
     padding: 7px 10px;
-    font-size: 0.88rem;
+    font-size: 0.78rem;
     margin: 6px auto;
   }
 
