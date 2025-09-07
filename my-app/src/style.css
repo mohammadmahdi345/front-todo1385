@@ -805,28 +805,14 @@ input {
 
 
 /* ============================
-   Container Queries — موبایل تا 900px و 480px
-   ============================ */
-
-/* پایه: امن‌سازی */
-*, *::before, *::after { box-sizing: border-box; }
-
-/* کانتینر عمومی که اندازه ریسپانسیو داره */
-.task-container, .login-wrapper, .program-form, .timeslot-form, 
-.tasks-container, .task-status-container {
-  container-type: inline-size;
-  container-name: main-container;
-}
-
-/* ============================
-   Mobile-only overrides (put at END of CSS)
-   Breakpoints: up to 900px and up to 480px
+   Mobile-only overrides — up to 900px and up to 480px
+   Place at END of CSS
    ============================ */
 
 /* =========== up to 900px =========== */
 @media (max-width: 900px) {
 
-  /* hide any music player (several common selectors) */
+  /* --- hide any music player (cover many selectors) --- */
   .music-player-container,
   .music-player,
   #music-player,
@@ -842,18 +828,18 @@ input {
     position: absolute !important;
   }
 
-  /* reserve space on top so content doesn't sit under fixed links */
+  /* reserve top space so content doesn't go under fixed links */
   body, #root, .app-wrapper {
-    padding-top: 64px !important;
+    padding-top: 60px !important;
     box-sizing: border-box !important;
   }
 
-  /* welcome: بزرگ‌تر و واضح‌تر */
+  /* welcome: slightly higher (less top margin) and larger */
   .welcome {
     display: block !important;
-    margin: 12px auto 6px auto !important;
+    margin: 6px auto 8px auto !important; /* moved a bit higher */
     text-align: center !important;
-    font-size: 1.4rem !important;        /* افزایش اندازه فونت */
+    font-size: 1.35rem !important;
     font-weight: 800 !important;
     color: #1e2b33 !important;
     line-height: 1.2 !important;
@@ -863,26 +849,25 @@ input {
   .welcome + .login-link,
   .welcome + .login-link + .login-link {
     position: fixed !important;
-    top: env(safe-area-inset-top, 10px) !important;
+    top: env(safe-area-inset-top, 8px) !important;
     z-index: 3000 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     min-width: 44px !important;
     height: 38px !important;
-    padding: 8px 12px !important;           /* جمع و جور تر برای موبایل */
+    padding: 8px 12px !important;
     color: #fff !important;
     text-decoration: none !important;
     border-radius: 8px !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
     backdrop-filter: blur(4px) !important;
     -webkit-backdrop-filter: blur(4px) !important;
-    bottom: auto !important; /* override any bottom positioning */
+    bottom: auto !important;
     font-weight: 700 !important;
   }
 
-  /* استایل‌های "قبلی" بازگردانده شده (رنگ‌ها شبیه کد اولیه) */
-  /* لینک سمت راست (اولین لینک بعد از .welcome) => ورود (آبی) */
+  /* ورود (اولین لینک بعد از .welcome) => بالا-راست (آبی) */
   .welcome + .login-link {
     right: 12px !important;
     left: auto !important;
@@ -890,22 +875,22 @@ input {
   }
   .welcome + .login-link:hover { background-color: #2980b9 !important; }
 
-  /* لینک سمت چپ (دومین لینک بعد از .welcome) => ثبت‌نام (صورتی/متفاوت) */
+  /* ثبت‌نام (دومین لینک بعد از .welcome) => بالا-چپ (صورتی) */
   .welcome + .login-link + .login-link {
     left: 12px !important;
     right: auto !important;
-    background-color: #923152 !important; /* مشابه register-link رنگ قبلی */
+    background-color: #923152 !important;
   }
   .welcome + .login-link + .login-link:hover { background-color: #c91337 !important; }
 
-  /* اگر فقط یک لینک موجود باشه (مثلاً خروج) => بالا-راست قرار بگیره */
+  /* اگر فقط یک لینک باشه (مثلاً خروج)، بالا-راست قرار بگیره */
   .welcome + .login-link:only-of-type {
     right: 12px !important;
     left: auto !important;
     background-color: #3498db !important;
   }
 
-  /* متن داخل لینک‌ها (چون JSX ات <h2> داخل a هست) */
+  /* text inside anchors (you have <h2> inside anchors) */
   .welcome + .login-link h2,
   .welcome + .login-link + .login-link h2,
   .welcome + .login-link:only-of-type h2 {
@@ -916,7 +901,7 @@ input {
     color: inherit !important;
   }
 
-  /* compact other buttons / links for mobile */
+  /* ---------- compact other buttons / links for mobile ---------- */
   a.program-link, a.tasks-link,
   .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
   .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
@@ -928,7 +913,7 @@ input {
     box-sizing: border-box !important;
   }
 
-  /* make container blocks narrower on mobile */
+  /* container blocks narrower on mobile */
   .login-wrapper, .program-form, .timeslot-form, .tasks-container, .task-status-container {
     max-width: 360px !important;
     width: calc(100% - 24px) !important;
@@ -937,13 +922,24 @@ input {
     box-sizing: border-box !important;
   }
 
+  /* ---------- task-program: reduce gap between program & tasks ---------- */
+  .task-program {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;  /* کمتر شده از 70px به 18px */
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 8px auto !important;
+  }
+
   /* motivational card: responsive & no empty space */
   .motivational-card {
     width: calc(100% - 28px) !important;
     max-width: 360px !important;
-    margin: 18px auto !important;
-    padding: 16px !important;
-    min-height: 120px !important;
+    margin: 14px auto 18px auto !important;
+    padding: 14px !important;
+    min-height: 110px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -951,9 +947,7 @@ input {
     overflow: hidden !important;
     box-sizing: border-box !important;
   }
-  .motivational-card::before {
-    border-radius: 12px !important;
-  }
+  .motivational-card::before { border-radius: 12px !important; }
 }
 
 /* =========== up to 480px =========== */
@@ -978,16 +972,17 @@ input {
   /* slightly smaller reserved top space */
   body, #root, .app-wrapper {
     padding-top: 56px !important;
+    box-sizing: border-box !important;
   }
 
-  /* welcome font a bit smaller but still prominent */
+  /* welcome a bit higher and slightly smaller */
   .welcome {
-    margin: 8px auto 4px auto !important;
+    margin: 4px auto 6px auto !important; /* بالاتر */
     font-size: 1.25rem !important;
     font-weight: 800 !important;
   }
 
-  /* tighten links */
+  /* tighten links (positions) */
   .welcome + .login-link {
     right: 10px !important;
     padding: 6px 9px !important;
@@ -1014,11 +1009,16 @@ input {
     margin: 12px auto !important;
   }
 
+  /* task-program gap even smaller on very small screens */
+  .task-program {
+    gap: 12px !important;
+  }
+
   .motivational-card {
     max-width: 300px !important;
     width: calc(100% - 20px) !important;
     padding: 12px !important;
-    min-height: 110px !important;
+    min-height: 100px !important;
   }
 
   /* smaller buttons */
