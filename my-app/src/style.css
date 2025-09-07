@@ -890,14 +890,14 @@ input {
   .program-form,
   .timeslot-form,
   .tasks-container,
-  .task-status-container,
-  .motivational-card {
+  .task-status-container
+  {
     max-width: 320px !important;
     padding: 8px 10px !important;
     margin: 12px auto !important;
   }
 
-  .motivational-card { padding: 10px !important; }
+  
   .task-title { font-size: clamp(0.95rem, 5.5vw, 1.2rem) !important; }
   .task-description { font-size: clamp(0.85rem, 4.5vw, 0.98rem) !important; }
 
