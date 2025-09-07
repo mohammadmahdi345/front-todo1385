@@ -823,62 +823,209 @@ input {
    Breakpoints: up to 900px and up to 480px
    ============================ */
 
-/* === فقط: اندازه و پدینگ دو لینک داخل .task-program ===
-   هیچ سلکتوری جز این دو لینک را لمس نمی‌کند.
-   قرار بدید دقیقاً در انتهای فایل CSS و سپس Hard Refresh
-*/
-
-/* ===== up to 900px ===== */
+/* =========== up to 900px =========== */
 @media (max-width: 900px) {
-  .task-program > a.program-link,
-  .task-program > a.tasks-link {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 
-    /* اندازه مثل دکمه لاگین — فقط همین موارد */
-    min-width: 44px !important;
-    height: 38px !important;
-    padding: 8px 12px !important;
-    font-size: 0.95rem !important;    /* فونت کمی کوچکتر */
-    line-height: 1 !important;
-    border-radius: 8px !important;
+  /* hide any music player (several common selectors) */
+  .music-player-container,
+  .music-player,
+  #music-player,
+  [data-music-player],
+  .music-player-container * {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+  }
 
-    /* مراقب بماند رنگ/بک‌گراند و position قبلی حفظ شود */
-    background: inherit !important;
-    color: inherit !important;
-    text-decoration: none !important;
+  /* reserve space on top so content doesn't sit under fixed links */
+  body, #root, .app-wrapper {
+    padding-top: 64px !important;
     box-sizing: border-box !important;
   }
 
-  /* اگر داخل <a> عنوان با <h2> هست، اندازه h2 را هم کاهش می‌کنیم */
-  .task-program > a.program-link h2,
-  .task-program > a.tasks-link h2 {
-    margin: 0 !important;
-    font-size: 0.95rem !important;
-    line-height: 1 !important;
+  /* welcome: بزرگ‌تر و واضح‌تر */
+  .welcome {
+    display: block !important;
+    margin: 12px auto 6px auto !important;
+    text-align: center !important;
+    font-size: 1.4rem !important;        /* افزایش اندازه فونت */
+    font-weight: 800 !important;
+    color: #1e2b33 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* ---------- place login/register links in the two top corners ---------- */
+  .welcome + .login-link,
+  .welcome + .login-link + .login-link {
+    position: fixed !important;
+    top: env(safe-area-inset-top, 10px) !important;
+    z-index: 3000 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    height: 38px !important;
+    padding: 8px 12px !important;           /* جمع و جور تر برای موبایل */
+    color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    bottom: auto !important; /* override any bottom positioning */
     font-weight: 700 !important;
   }
 
-  /* فاصله بین دو دکمه کنار هم */
-  .task-program { gap: 10px !important; justify-content: center !important; }
+  /* استایل‌های "قبلی" بازگردانده شده (رنگ‌ها شبیه کد اولیه) */
+  /* لینک سمت راست (اولین لینک بعد از .welcome) => ورود (آبی) */
+  .welcome + .login-link {
+    right: 12px !important;
+    left: auto !important;
+    background-color: #3498db !important;
+  }
+  .welcome + .login-link:hover { background-color: #2980b9 !important; }
+
+  /* لینک سمت چپ (دومین لینک بعد از .welcome) => ثبت‌نام (صورتی/متفاوت) */
+  .welcome + .login-link + .login-link {
+    left: 12px !important;
+    right: auto !important;
+    background-color: #923152 !important; /* مشابه register-link رنگ قبلی */
+  }
+  .welcome + .login-link + .login-link:hover { background-color: #c91337 !important; }
+
+  /* اگر فقط یک لینک موجود باشه (مثلاً خروج) => بالا-راست قرار بگیره */
+  .welcome + .login-link:only-of-type {
+    right: 12px !important;
+    left: auto !important;
+    background-color: #3498db !important;
+  }
+
+  /* متن داخل لینک‌ها (چون JSX ات <h2> داخل a هست) */
+  .welcome + .login-link h2,
+  .welcome + .login-link + .login-link h2,
+  .welcome + .login-link:only-of-type h2 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+    color: inherit !important;
+  }
+
+  /* compact other buttons / links for mobile */
+  a.program-link, a.tasks-link,
+  .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
+  .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
+    display: block !important;
+    width: 100% !important;
+    padding: 8px 10px !important;
+    font-size: 0.9rem !important;
+    margin: 8px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* make container blocks narrower on mobile */
+  .login-wrapper, .program-form, .timeslot-form, .tasks-container, .task-status-container {
+    max-width: 360px !important;
+    width: calc(100% - 24px) !important;
+    margin: 14px auto !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* motivational card: responsive & no empty space */
+  .motivational-card {
+    width: calc(100% - 28px) !important;
+    max-width: 360px !important;
+    margin: 18px auto !important;
+    padding: 16px !important;
+    min-height: 120px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .motivational-card::before {
+    border-radius: 12px !important;
+  }
 }
 
-/* ===== up to 480px ===== */
+/* =========== up to 480px =========== */
 @media (max-width: 480px) {
-  .task-program > a.program-link,
-  .task-program > a.tasks-link {
-    min-width: 40px !important;
+
+  /* ensure player still hidden */
+  .music-player-container,
+  .music-player,
+  #music-player,
+  [data-music-player],
+  .music-player-container * {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+  }
+
+  /* slightly smaller reserved top space */
+  body, #root, .app-wrapper {
+    padding-top: 56px !important;
+  }
+
+  /* welcome font a bit smaller but still prominent */
+  .welcome {
+    margin: 8px auto 4px auto !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+  }
+
+  /* tighten links */
+  .welcome + .login-link {
+    right: 10px !important;
+    padding: 6px 9px !important;
     height: 34px !important;
-    padding: 6px 10px !important;
-    font-size: 0.85rem !important;
+    min-width: 40px !important;
+  }
+  .welcome + .login-link + .login-link {
+    left: 10px !important;
+    padding: 6px 9px !important;
+    height: 34px !important;
+    min-width: 40px !important;
   }
 
-  .task-program > a.program-link h2,
-  .task-program > a.tasks-link h2 {
-    font-size: 0.85rem !important;
-    margin: 0 !important;
+  .welcome + .login-link h2,
+  .welcome + .login-link + .login-link h2,
+  .welcome + .login-link:only-of-type h2 {
+    font-size: 0.82rem !important;
   }
 
-  .task-program { gap: 8px !important; justify-content: center !important; }
+  .login-wrapper, .program-form, .timeslot-form, .tasks-container, .task-status-container {
+    max-width: 320px !important;
+    width: calc(100% - 20px) !important;
+    padding: 10px !important;
+    margin: 12px auto !important;
+  }
+
+  .motivational-card {
+    max-width: 300px !important;
+    width: calc(100% - 20px) !important;
+    padding: 12px !important;
+    min-height: 110px !important;
+  }
+
+  /* smaller buttons */
+  a.program-link, a.tasks-link,
+  .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
+  .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
+    padding: 7px 8px !important;
+    font-size: 0.85rem !important;
+  }
 }
