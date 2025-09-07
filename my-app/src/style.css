@@ -818,28 +818,33 @@ input {
   container-name: main-container;
 }
 
-/* برای موبایل — زیر 900px */
+/* موبایل — زیر 900px */
 @container main-container (max-width: 900px) {
   html, body { overflow-x: hidden; padding: 0 12px; }
 
-  /* حذف بخش موزیک */
+  /* حذف کامل موزیک */
   .music-player-container {
     display: none !important;
-    pointer-events: none !important;
-    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
-  /* آیکون لاگین بیاد بالای متن خوشامدگویی */
+  /* لاگین بره بالا */
   .login-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 12px;
+    margin-top: 60px !important; /* خوشامد بیاد پایین‌تر */
+    position: relative;
   }
   .login-wrapper a.login-link {
-    order: -1; /* میاره بالا */
-    align-self: flex-start;
-    margin-bottom: 8px;
+    position: absolute;
+    top: -50px; /* میره بالای صفحه */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem !important;
+    padding: 6px 12px !important;
   }
 
   /* کارت‌ها و فرم‌ها */
@@ -858,12 +863,30 @@ input {
     box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
   }
 
+  /* دکمه‌ها کوچیک‌تر شن */
+  a.login-link, a.program-link, a.tasks-link,
+  .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
+  .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 6px 10px !important;
+    margin: 6px 0 !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* متن خوشامد */
+  .welcome-text {
+    margin-top: 30px !important; /* بیاد پایین‌تر */
+    font-size: 1rem !important;
+    text-align: center;
+  }
+
   /* متن نقل قول */
-  .quote-text { font-size: clamp(0.95rem, 4vw, 1.3rem) !important; text-align: center; }
-  .quote-author { font-size: clamp(0.85rem, 3.5vw, 1rem) !important; text-align: center; }
+  .quote-text { font-size: clamp(0.9rem, 4vw, 1.2rem) !important; text-align: center; }
+  .quote-author { font-size: clamp(0.8rem, 3.5vw, 0.95rem) !important; text-align: center; }
 }
 
-/* برای موبایل خیلی کوچک — زیر 480px */
+/* موبایل خیلی کوچک — زیر 480px */
 @container main-container (max-width: 480px) {
   body { padding: 0 10px; }
 
@@ -878,17 +901,31 @@ input {
     margin: 12px auto !important;
   }
 
-  /* دوباره موزیک حذف شه */
+  /* موزیک حذف شه */
   .music-player-container {
     display: none !important;
-    pointer-events: none !important;
-    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
-  /* آیکون لاگین بالا بمونه */
+  /* لاگین بالا بمونه */
   .login-wrapper a.login-link {
-    order: -1;
-    align-self: flex-start;
-    margin-bottom: 8px;
+    top: -40px;
+    font-size: 0.85rem !important;
+  }
+
+  /* دکمه‌ها کوچیک‌تر */
+  a.login-link, a.program-link, a.tasks-link,
+  .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
+  .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
+    padding: 5px 8px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* متن خوشامد */
+  .welcome-text {
+    margin-top: 20px !important;
+    font-size: 0.95rem !important;
   }
 }
