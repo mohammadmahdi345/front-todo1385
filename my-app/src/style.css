@@ -826,7 +826,7 @@ input {
 /* =========== up to 900px =========== */
 @media (max-width: 900px) {
 
-  /* موسیقی روی موبایل مخفی */
+  /* hide any music player */
   .music-player-container,
   .music-player,
   #music-player,
@@ -842,57 +842,128 @@ input {
     position: absolute !important;
   }
 
-  /* دکمه‌های برنامه‌ریزی و تسک */
-  a.program-link,
-  a.tasks-link {
-    font-size: 1rem !important;     /* حداقل 16px تا سافاری زوم نکنه */
-    padding: 10px 12px !important;
-    transition: transform 0.2s ease-in-out !important;
-    display: block !important;
-    width: 100% !important;
+  body, #root, .app-wrapper {
+    padding-top: 64px !important;
     box-sizing: border-box !important;
+  }
+
+  /* welcome */
+  .welcome {
+    display: block !important;
+    margin: 12px auto 6px auto !important;
     text-align: center !important;
-  }
-
-  /* افکت translateY روی تاچ/هاور */
-  a.program-link:active,
-  a.program-link:hover,
-  a.tasks-link:active,
-  a.tasks-link:hover {
-    transform: translateY(-8px) !important;
-  }
-
-  a.program-link > h2,
-  a.tasks-link > h2 {
-    font-size: 1rem !important;
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    color: #1e2b33 !important;
     line-height: 1.2 !important;
+  }
+
+  /* login/register links top */
+  .welcome + .login-link,
+  .welcome + .login-link + .login-link {
+    position: fixed !important;
+    top: env(safe-area-inset-top, 10px) !important;
+    z-index: 3000 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 48px !important;
+    height: 40px !important;
+    padding: 8px 14px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    font-weight: 700 !important;
+  }
+
+  .welcome + .login-link { right: 12px !important; background-color: #3498db !important; }
+  .welcome + .login-link:hover { background-color: #2980b9 !important; }
+  .welcome + .login-link + .login-link { left: 12px !important; background-color: #923152 !important; }
+  .welcome + .login-link + .login-link:hover { background-color: #c91337 !important; }
+
+  .welcome + .login-link h2,
+  .welcome + .login-link + .login-link h2 {
     margin: 0 !important;
     padding: 0 !important;
+    font-size: 1.05rem !important;   /* ← بزرگتر شد */
+    line-height: 1 !important;
+    color: inherit !important;
+  }
+
+  /* program & tasks buttons (smaller) */
+  .task-program > a.program-link,
+  .task-program > a.tasks-link {
+    display: block !important;
+    width: 100% !important;
+    min-width: 44px !important;
+    height: 38px !important;
+    padding: 8px 12px !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+    border-radius: 8px !important;
+    margin: 8px 0 !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .task-program > a.program-link h2,
+  .task-program > a.tasks-link h2 {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
   }
 }
 
 /* =========== up to 480px =========== */
 @media (max-width: 480px) {
 
-  a.program-link,
-  a.tasks-link {
-    font-size: 1rem !important;
-    padding: 9px 10px !important;
-    transition: transform 0.2s ease-in-out !important;
+  .music-player-container,
+  .music-player,
+  #music-player,
+  [data-music-player],
+  .music-player-container * {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
   }
 
-  a.program-link:active,
-  a.program-link:hover,
-  a.tasks-link:active,
-  a.tasks-link:hover {
-    transform: translateY(-8px) !important;
+  body, #root, .app-wrapper { padding-top: 56px !important; }
+
+  .welcome {
+    margin: 8px auto 4px auto !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
   }
 
-  a.program-link > h2,
-  a.tasks-link > h2 {
-    font-size: 1rem !important;
-    line-height: 1.2 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  .welcome + .login-link,
+  .welcome + .login-link + .login-link {
+    height: 36px !important;
+    padding: 6px 12px !important;
+  }
+
+  .welcome + .login-link h2,
+  .welcome + .login-link + .login-link h2 {
+    font-size: 0.95rem !important;   /* ← بزرگتر شد */
+  }
+
+  .task-program > a.program-link,
+  .task-program > a.tasks-link {
+    height: 34px !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+    border-radius: 8px !important;
+    margin: 8px 0 !important;
+  }
+  .task-program > a.program-link h2,
+  .task-program > a.tasks-link h2 {
+    font-size: 0.85rem !important;
   }
 }
