@@ -822,110 +822,75 @@ input {
 @container main-container (max-width: 900px) {
   html, body { overflow-x: hidden; padding: 0 12px; }
 
-  /* حذف کامل موزیک */
-  .music-player-container {
+  /* موزیک حذف کامل */
+  .music-player-container,
+  #music-player,
+  .music-player {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
+    width: 0 !important;
     overflow: hidden !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
-  /* لاگین بره بالا */
-  .login-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 60px !important; /* خوشامد بیاد پایین‌تر */
-    position: relative;
+  /* لاگین و ثبت‌نام برن بالا */
+  .login-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto 20px auto !important;
+    padding: 0 10px !important;
   }
-  .login-wrapper a.login-link {
-    position: absolute;
-    top: -50px; /* میره بالای صفحه */
-    left: 50%;
-    transform: translateX(-50%);
+
+  .login-header .login-link {
+    align-self: flex-start;
     font-size: 0.9rem !important;
     padding: 6px 12px !important;
   }
 
-  /* کارت‌ها و فرم‌ها */
-  .login-wrapper,
-  .program-form,
-  .timeslot-form,
-  .tasks-container,
-  .task-status-container,
-  .motivational-card {
-    width: 100% !important;
-    max-width: 360px !important;
-    margin: 14px auto !important;
-    padding: 12px 14px !important;
-    border-radius: 12px !important;
-    background-color: rgba(255,255,255,0.98) !important;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
+  .login-header .signup-link {
+    align-self: flex-start;
+    font-size: 0.9rem !important;
+    padding: 6px 12px !important;
   }
 
-  /* دکمه‌ها کوچیک‌تر شن */
-  a.login-link, a.program-link, a.tasks-link,
+  /* متن خوشامد بیاد زیر دکمه‌ها */
+  .welcome-text {
+    margin-top: 60px !important; /* فاصله از دکمه‌ها */
+    text-align: center;
+    font-size: 1rem !important;
+    line-height: 1.6;
+  }
+
+  /* دکمه‌های دیگه کوچیک‌تر */
+  a.program-link, a.tasks-link,
   .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
   .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 6px 10px !important;
+    padding: 7px 10px !important;
     margin: 6px 0 !important;
     font-size: 0.85rem !important;
   }
-
-  /* متن خوشامد */
-  .welcome-text {
-    margin-top: 30px !important; /* بیاد پایین‌تر */
-    font-size: 1rem !important;
-    text-align: center;
-  }
-
-  /* متن نقل قول */
-  .quote-text { font-size: clamp(0.9rem, 4vw, 1.2rem) !important; text-align: center; }
-  .quote-author { font-size: clamp(0.8rem, 3.5vw, 0.95rem) !important; text-align: center; }
 }
 
 /* موبایل خیلی کوچک — زیر 480px */
 @container main-container (max-width: 480px) {
-  body { padding: 0 10px; }
-
-  .login-wrapper,
-  .program-form,
-  .timeslot-form,
-  .tasks-container,
-  .task-status-container,
-  .motivational-card {
-    max-width: 320px !important;
-    padding: 10px !important;
-    margin: 12px auto !important;
+  .login-header {
+    padding: 0 6px !important;
   }
-
-  /* موزیک حذف شه */
-  .music-player-container {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
-  }
-
-  /* لاگین بالا بمونه */
-  .login-wrapper a.login-link {
-    top: -40px;
-    font-size: 0.85rem !important;
-  }
-
-  /* دکمه‌ها کوچیک‌تر */
-  a.login-link, a.program-link, a.tasks-link,
-  .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
-  .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
-    padding: 5px 8px !important;
+  .login-header .login-link,
+  .login-header .signup-link {
     font-size: 0.8rem !important;
+    padding: 5px 10px !important;
   }
-
-  /* متن خوشامد */
   .welcome-text {
-    margin-top: 20px !important;
-    font-size: 0.95rem !important;
+    margin-top: 40px !important;
+    font-size: 0.9rem !important;
   }
 }
+
