@@ -819,14 +819,14 @@ input {
 }
 
 /* ============================
-   Mobile overrides — place at END of CSS
+   Mobile-only overrides (put at END of CSS)
    Breakpoints: up to 900px and up to 480px
    ============================ */
 
 /* =========== up to 900px =========== */
 @media (max-width: 900px) {
 
-  /* --- hide any music player (several common selectors) --- */
+  /* hide any music player (several common selectors) */
   .music-player-container,
   .music-player,
   #music-player,
@@ -842,36 +842,35 @@ input {
     position: absolute !important;
   }
 
-  /* reserve space on top so content doesn't go under fixed links */
+  /* reserve space on top so content doesn't sit under fixed links */
   body, #root, .app-wrapper {
     padding-top: 64px !important;
     box-sizing: border-box !important;
   }
 
-  /* ensure welcome heading is block and centered */
+  /* welcome: بزرگ‌تر و واضح‌تر */
   .welcome {
     display: block !important;
-    margin: 8px auto 6px auto !important;
+    margin: 12px auto 6px auto !important;
     text-align: center !important;
-    font-size: 1.05rem !important;
-    font-weight: 700 !important;
+    font-size: 1.4rem !important;        /* افزایش اندازه فونت */
+    font-weight: 800 !important;
     color: #1e2b33 !important;
+    line-height: 1.2 !important;
   }
 
   /* ---------- place login/register links in the two top corners ---------- */
-  /* target the anchors that come immediately after .welcome in your JSX */
   .welcome + .login-link,
   .welcome + .login-link + .login-link {
     position: fixed !important;
-    top: env(safe-area-inset-top, 8px) !important;
+    top: env(safe-area-inset-top, 10px) !important;
     z-index: 3000 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     min-width: 44px !important;
     height: 38px !important;
-    padding: 6px 10px !important;
-    background: rgba(0,0,0,0.18) !important;
+    padding: 8px 12px !important;           /* جمع و جور تر برای موبایل */
     color: #fff !important;
     text-decoration: none !important;
     border-radius: 8px !important;
@@ -879,27 +878,34 @@ input {
     backdrop-filter: blur(4px) !important;
     -webkit-backdrop-filter: blur(4px) !important;
     bottom: auto !important; /* override any bottom positioning */
+    font-weight: 700 !important;
   }
 
-  /* first link after .welcome -> put top-right (ورود) */
+  /* استایل‌های "قبلی" بازگردانده شده (رنگ‌ها شبیه کد اولیه) */
+  /* لینک سمت راست (اولین لینک بعد از .welcome) => ورود (آبی) */
   .welcome + .login-link {
     right: 12px !important;
     left: auto !important;
+    background-color: #3498db !important;
   }
+  .welcome + .login-link:hover { background-color: #2980b9 !important; }
 
-  /* second link -> put top-left (ثبت نام) */
+  /* لینک سمت چپ (دومین لینک بعد از .welcome) => ثبت‌نام (صورتی/متفاوت) */
   .welcome + .login-link + .login-link {
     left: 12px !important;
     right: auto !important;
+    background-color: #923152 !important; /* مشابه register-link رنگ قبلی */
   }
+  .welcome + .login-link + .login-link:hover { background-color: #c91337 !important; }
 
-  /* if there's only one such link (e.g. خروج), place it top-right */
+  /* اگر فقط یک لینک موجود باشه (مثلاً خروج) => بالا-راست قرار بگیره */
   .welcome + .login-link:only-of-type {
     right: 12px !important;
     left: auto !important;
+    background-color: #3498db !important;
   }
 
-  /* adjust text inside (you have <h2> inside anchors) */
+  /* متن داخل لینک‌ها (چون JSX ات <h2> داخل a هست) */
   .welcome + .login-link h2,
   .welcome + .login-link + .login-link h2,
   .welcome + .login-link:only-of-type h2 {
@@ -907,11 +913,10 @@ input {
     padding: 0 !important;
     font-size: 0.95rem !important;
     line-height: 1 !important;
-    font-weight: 700 !important;
     color: inherit !important;
   }
 
-  /* ---------- compact other buttons / links for mobile ---------- */
+  /* compact other buttons / links for mobile */
   a.program-link, a.tasks-link,
   .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
   .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
@@ -932,7 +937,7 @@ input {
     box-sizing: border-box !important;
   }
 
-  /* ---------- motivational card: responsive & no empty space ---------- */
+  /* motivational card: responsive & no empty space */
   .motivational-card {
     width: calc(100% - 28px) !important;
     max-width: 360px !important;
@@ -958,7 +963,8 @@ input {
   .music-player-container,
   .music-player,
   #music-player,
-  [data-music-player] {
+  [data-music-player],
+  .music-player-container * {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
@@ -966,6 +972,7 @@ input {
     overflow: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    position: absolute !important;
   }
 
   /* slightly smaller reserved top space */
@@ -973,16 +980,23 @@ input {
     padding-top: 56px !important;
   }
 
+  /* welcome font a bit smaller but still prominent */
+  .welcome {
+    margin: 8px auto 4px auto !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+  }
+
   /* tighten links */
   .welcome + .login-link {
     right: 10px !important;
-    padding: 5px 8px !important;
+    padding: 6px 9px !important;
     height: 34px !important;
     min-width: 40px !important;
   }
   .welcome + .login-link + .login-link {
     left: 10px !important;
-    padding: 5px 8px !important;
+    padding: 6px 9px !important;
     height: 34px !important;
     min-width: 40px !important;
   }
@@ -990,12 +1004,7 @@ input {
   .welcome + .login-link h2,
   .welcome + .login-link + .login-link h2,
   .welcome + .login-link:only-of-type h2 {
-    font-size: 0.8rem !important;
-  }
-
-  .welcome {
-    margin: 6px auto 6px auto !important;
-    font-size: 1rem !important;
+    font-size: 0.82rem !important;
   }
 
   .login-wrapper, .program-form, .timeslot-form, .tasks-container, .task-status-container {
@@ -1012,7 +1021,7 @@ input {
     min-height: 110px !important;
   }
 
-  /* make other buttons slightly smaller */
+  /* smaller buttons */
   a.program-link, a.tasks-link,
   .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
   .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
