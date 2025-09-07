@@ -888,12 +888,12 @@ input {
   .welcome + .login-link + .login-link h2 {
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 1.05rem !important;   /* ← بزرگتر شد */
+    font-size: 1.05rem !important;
     line-height: 1 !important;
     color: inherit !important;
   }
 
-  /* program & tasks buttons (smaller) */
+  /* program & tasks buttons (smaller, no h2 inside) */
   .task-program > a.program-link,
   .task-program > a.tasks-link {
     display: block !important;
@@ -902,18 +902,19 @@ input {
     height: 38px !important;
     padding: 8px 12px !important;
     font-size: 0.95rem !important;
+    font-weight: 700 !important;
     line-height: 1 !important;
     border-radius: 8px !important;
     margin: 8px 0 !important;
     text-align: center !important;
     box-sizing: border-box !important;
+    background: #f4f4f4 !important;
+    color: #222 !important;
+    text-decoration: none !important;
   }
-  .task-program > a.program-link h2,
-  .task-program > a.tasks-link h2 {
-    margin: 0 !important;
-    font-size: 0.95rem !important;
-    line-height: 1 !important;
-    font-weight: 700 !important;
+  .task-program > a.program-link:hover,
+  .task-program > a.tasks-link:hover {
+    background: #e2e2e2 !important;
   }
 }
 
@@ -951,7 +952,7 @@ input {
 
   .welcome + .login-link h2,
   .welcome + .login-link + .login-link h2 {
-    font-size: 0.95rem !important;   /* ← بزرگتر شد */
+    font-size: 0.95rem !important;
   }
 
   .task-program > a.program-link,
@@ -959,11 +960,15 @@ input {
     height: 34px !important;
     padding: 6px 10px !important;
     font-size: 0.85rem !important;
+    font-weight: 700 !important;
     border-radius: 8px !important;
     margin: 8px 0 !important;
+    background: #f4f4f4 !important;
+    color: #222 !important;
+    text-decoration: none !important;
   }
-  .task-program > a.program-link h2,
-  .task-program > a.tasks-link h2 {
-    font-size: 0.85rem !important;
+  .task-program > a.program-link:hover,
+  .task-program > a.tasks-link:hover {
+    background: #e2e2e2 !important;
   }
 }
