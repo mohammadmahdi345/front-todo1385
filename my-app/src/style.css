@@ -888,12 +888,12 @@ input {
   .welcome + .login-link + .login-link h2 {
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 1.05rem !important;   /* ← بزرگتر شد */
+    font-size: 1.05rem !important;
     line-height: 1 !important;
     color: inherit !important;
   }
 
-  /* program & tasks buttons (smaller) */
+  /* program & tasks buttons - اثر transform برداشته شد */
   .task-program > a.program-link,
   .task-program > a.tasks-link {
     display: block !important;
@@ -907,6 +907,7 @@ input {
     margin: 8px 0 !important;
     text-align: center !important;
     box-sizing: border-box !important;
+    transform: none !important;   /* ← اثر زوم برداشته شد */
   }
   .task-program > a.program-link h2,
   .task-program > a.tasks-link h2 {
@@ -951,9 +952,10 @@ input {
 
   .welcome + .login-link h2,
   .welcome + .login-link + .login-link h2 {
-    font-size: 0.95rem !important;   /* ← بزرگتر شد */
+    font-size: 0.95rem !important;
   }
 
+  /* program & tasks buttons - اثر transform برداشته شد */
   .task-program > a.program-link,
   .task-program > a.tasks-link {
     height: 34px !important;
@@ -961,6 +963,7 @@ input {
     font-size: 0.85rem !important;
     border-radius: 8px !important;
     margin: 8px 0 !important;
+    transform: none !important;  /* ← اثر زوم برداشته شد */
   }
   .task-program > a.program-link h2,
   .task-program > a.tasks-link h2 {
