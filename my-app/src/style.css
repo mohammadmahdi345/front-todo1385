@@ -840,24 +840,7 @@ input {
     direction: rtl;
   }
 
-  a.login-link, a.program-link, a.tasks-link,
-  .login-submit-btn, .program-submit-btn, .timeslot-submit-btn,
-  .task-button8, .back-to-tasks-btn, .task-status, .next-quote-btn {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px 12px;
-    margin: 8px 0;
-    font-size: clamp(0.88rem, 3.5vw, 1rem);
-  }
-
-  .task-button8 { align-self: center; }
-
-  .task-card {
-    padding: 12px;
-    margin-bottom: 12px;
-    gap: 10px;
-  }
-
+  .task-card { padding: 12px; margin-bottom: 12px; gap: 10px; }
   .task-title { font-size: clamp(1rem, 4.5vw, 1.4rem); }
   .task-description { font-size: clamp(0.9rem, 3.5vw, 1rem); padding-bottom: 6px; }
   .task-date { font-size: clamp(0.8rem, 2.5vw, 0.95rem); text-align: left; direction: ltr; }
@@ -881,14 +864,16 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     min-height: 180px; /* ارتفاع حداقلی */
+    overflow: hidden;
   }
 
   .motivational-card::before {
     content: "";
     position: absolute;
     top:0; left:0; right:0; bottom:0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.6) 100%);
     border-radius: 16px;
     z-index: 0;
   }
